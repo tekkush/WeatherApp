@@ -1,0 +1,16 @@
+stages:
+  - build
+
+image:
+  name: "maven:3.6.3-openjdk-11"
+
+build:
+  stage: build
+  tags:
+    - compcs140
+  script:
+    - echo "Compiling"
+    - cd WeatherApp/
+    - mvn compile
+    - echo "Running tests"
+    - mvn test -f pom.xml
